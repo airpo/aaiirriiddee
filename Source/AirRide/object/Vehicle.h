@@ -37,6 +37,11 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
+    void SetupHoverUnit(int32 num);
+
+    bool TickHover();
+    void TickStabilizer();
+
     FVehicleBaseStats BaseStats;
 
     UPROPERTY(VisibleAnywhere)
@@ -44,6 +49,15 @@ public:
 
     UPROPERTY(VisibleAnywhere)
         UStaticMeshComponent* Mesh;
+
+
+    UPROPERTY(VisibleAnywhere)
+        USceneComponent* HoverUnitRoot;
+
+    UPROPERTY(VisibleAnywhere)
+        USceneComponent* HoistStabilizer;
+
+    TArray<USceneComponent*> HoverUnits;
 	
 	
 };
